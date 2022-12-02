@@ -16,10 +16,10 @@ def extract(name, ranges):
 		pdf_writer.write(output_file)
 
 def merge_folder(folder):
-	folder = f"input/{folder}"
+	inputfolder = f"input/{folder}"
 	pdf_merger = PdfFileMerger(strict = False)
-	for filename in os.listdir(folder):
-		pdf = PdfFileReader(f"{folder}/{filename}")
+	for filename in os.listdir(inputfolder):
+		pdf = PdfFileReader(f"{inputfolder}/{filename}")
 		pdf_merger.append(pdf)
 		
 	with Path(f"output/{folder}.pdf").open(mode="wb") as output_file:
